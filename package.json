@@ -2,7 +2,6 @@
   "name": "protean",
   "version": "1.0.0",
   "description": "Pokemon type effectiveness, done right.",
-  "main": "Gruntfile.js",
   "scripts": {
     "test": "mocha -r spec && mocha-phantomjs index.html"
   },
@@ -11,7 +10,6 @@
     "url": "git+https://github.com/javakat/protean.git"
   },
   "author": "milieu (Jake Harris, milieu@javakat.io)",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/javakat/protean/issues"
   },

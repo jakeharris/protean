@@ -31,7 +31,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['assets/styles/sass/{,*/}*.{scss,sass}'],
-        tasks: ['compile']
+        tasks: ['sass', 'cssmin']
       },
       js: {
         files: ['assets/scripts/{,*/}*.js'],
@@ -81,13 +81,8 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            'assets/styles/*.css*',
-            '!assets/styles/*.min.*.css',
-            '.tmp',
-            'dist/assets/styles/*.css',
-            '!dist/assets/styles/*.min.*.css',
-            'dist/assets/scripts/*.js',
-            '!dist/assets/scripts/*.min.*.js'
+            'assets/styles/*.css',
+            '!assets/styles/*.min.css',
           ]
         }]
       }
@@ -112,7 +107,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'assets/styles/sass',
-          src: ['*.{scss,sass}'],
+          src: ['{,*/}*.{scss,sass}'],
           dest: 'assets/styles',
           ext: '.css'
         }]
