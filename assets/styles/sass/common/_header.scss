@@ -1,0 +1,33 @@
+@import 'variables';
+
+header {
+  display: block;
+  min-height: 30vh;
+  
+  &.normal { background-color: $normal }
+  &.fire { background-color: $fire }
+  &.water { background-color: $water }
+  &.grass { background-color: $grass }
+  &.poison { background-color: $poison }
+  &.bug { background-color: $bug }
+  &.dark { background-color: $dark }
+  &.ghost { background-color: $ghost }
+  &.psychic { background-color: $psychic }
+  &.fighting { background-color: $fighting }
+  &.flying { background-color: $flying }
+  &.dragon { background-color: $dragon }
+  &.ice { background-color: $ice }
+  &.rock { background-color: $rock }
+  &.ground { background-color: $ground }
+  &.electric { background-color: $electric }
+  &.fairy { background-color: $fairy }
+  &.steel { background-color: $steel }
+}
+h1 {
+  font-size: $title-font-size;
+  text-align: center;
+}
+h1 + p {
+  font-size: $subtitle-font-size;
+  text-align: center;
+}

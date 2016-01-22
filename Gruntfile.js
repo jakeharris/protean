@@ -31,7 +31,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['assets/styles/sass/{,*/}*.{scss,sass}'],
-        tasks: ['sass', 'cssmin']
+        tasks: ['sass', 'cssmin', 'clean:post']
       },
       js: {
         files: ['assets/scripts/{,*/}*.js'],
