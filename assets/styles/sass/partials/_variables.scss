@@ -1,0 +1,73 @@
+/* Colors, courtesy of epidemicjohto.com */
+
+$types: normal fire water electric grass ice fighting poison ground flying psychic bug rock ghost dragon dark steel fairy;
+
+$normal: #f6e9ca;
+$fire: #ee8130;
+$water: #6390f0;
+$electric: #f7d02c;
+$grass: #7ac74c;
+$ice: #96d9d6;
+$fighting: #c22e28;
+$poison: #a33ea1;
+$ground: #e2bf65;
+$flying: #a98ff3;
+$psychic: #f95587;
+$bug: #a6b91a;
+$rock: #b6a136;
+$ghost: #735797;
+$dragon: #6f35fc;
+$dark: #705746;
+$steel: #b7b7ce;
+$fairy: #d685ad;
+
+/* Sizes */
+$title-font-size: 8rem;
+$subtitle-font-size: 4rem;
+
+@mixin type-colors($type) {
+  background-color: get-type-color($type);
+  color: get-type-color($type, true);
+}
+@function get-type-color($type, $isFont:false) {
+  @if $type == 'normal' {
+    @return if($isFont, $normal-font-color, $normal);
+  } @elseif $type == 'fire' {
+    @return if($isFont, $fire-font-color, $fire);
+  } @elseif $type == 'water' {
+    @return if($isFont, $water-font-color, $water);
+  } @elseif $type == 'electric' {
+    @return if($isFont, $electric-font-color, $electric);
+  } @elseif $type == 'grass' {
+    @return if($isFont, $grass-font-color, $grass);
+  } @elseif $type == 'ice' {
+    @return if($isFont, $ice-font-color, $ice);
+  } @elseif $type == 'fighting' {
+    @return if($isFont, $fighting-font-color, $fighting);
+  } @elseif $type == 'poison' {
+    @return if($isFont, $poison-font-color, $poison);
+  } @elseif $type == 'ground' {
+    @return if($isFont, $ground-font-color, $ground);
+  } @elseif $type == 'flying' {
+    @return if($isFont, $flying-font-color, $flying);
+  } @elseif $type == 'psychic' {
+    @return if($isFont, $psychic-font-color, $psychic);
+  } @elseif $type == 'bug' {
+    @return if($isFont, $bug-font-color, $bug);
+  } @elseif $type == 'rock' {
+    @return if($isFont, $rock-font-color, $rock);
+  } @elseif $type == 'ghost' {
+    @return if($isFont, $ghost-font-color, $ghost);
+  } @elseif $type == 'dragon' {
+    @return if($isFont, $dragon-font-color, $dragon);
+  } @elseif $type == 'dark' {
+    @return if($isFont, $dark-font-color, $dark);
+  } @elseif $type == 'steel' {
+    @return if($isFont, $steel-font-color, $steel);
+  } @elseif $type == 'fairy' {
+    @return if($isFont, $fairy-font-color, $fairy);
+  } @else {
+    @warn "We didn't receive a valid type. (Received: #{$type}.)";
+    @return if($isFont, $normal-font-color, $normal);
+  }
+}

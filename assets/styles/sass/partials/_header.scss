@@ -1,0 +1,21 @@
+@import 'variables';
+
+header {
+  display: block;
+  min-height: 30vh;
+}
+
+@each $type in $types {
+  .#{$type} {
+    @include type-colors($type);
+  }
+}
+
+h1 {
+  font-size: $title-font-size;
+  text-align: center;
+}
+h1 + p {
+  font-size: $subtitle-font-size;
+  text-align: center;
+}
