@@ -1,0 +1,17 @@
+.type-effectiveness {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.weaknesses, .resistances {
+  flex-basis: 100%;
+  h1 {
+    text-align: center;
+    padding: 1rem 0;
+  }
+}
+@media (min-width: 480px) {
+  .weaknesses, .resistances {
+    flex-basis: 50%;
+  }
+}

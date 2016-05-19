@@ -1,0 +1,17 @@
+@import 'variables';
+
+.selected-types {
+  display: flex;
+  min-height: 10vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  
+  @include type-colors('normal');
+  
+  border-bottom: 3px solid darken(get-type-color('normal'), 50%);
+}
+.waiting {
+  font-size: $subtitle-font-size;
+}
