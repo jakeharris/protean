@@ -192,7 +192,7 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
 (function () {
   
   var timer = 0,
-      timeLimit = 2000 //time in ms
+      timeLimit = 5000 //time in ms
   
   var isType = function (text) {
     return (types.indexOf(text) != -1)
@@ -206,7 +206,7 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
     var waitingDiv = document.getElementById(waitingId)
     if(waitingDiv !== null) waitingDiv.remove()
     
-    if(selectedTypes.childElementCount > 1) {
+    if(selectedTypes.childElementCount > 1 || Date.now() - timer >= timeLimit) {
       var st = document.createElement('section')
       st.id = 'selected-types'
       st.className = 'selected-types'
@@ -332,13 +332,37 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
       createTypeButton(t)
       updateTypeChartData()
       e.value = ''
+      timer = Date.now()
     }
   }
   var setHeaderColor = function (e) {
     if(isType(e.value))
       header.className = e.value
   }
-  var keyupWrapper = function () {
+  var escapeUpWrapper = function (e) {
+    if(e.keyCode === 27) {
+      var typeToRemove = selectedTypes.lastChild
+      selectedTypesArray.splice(selectedTypesArray.indexOf(typeToRemove.textContent.slice(1)), 1)
+      selectedTypes.removeChild(typeToRemove)
+      updateTypeChartData()
+      timer = Date.now()
+    }
+    return false;
+  }
+  var keyDownWrapper = function (e) {
+    if(e.keyCode === 8 && this.value === '') {
+      var typeToRemove = selectedTypes.lastChild
+      selectedTypesArray.splice(selectedTypesArray.indexOf(typeToRemove.textContent.slice(1)), 1)
+      selectedTypes.removeChild(typeToRemove)
+      updateTypeChartData()
+      timer = Date.now()
+    }
+  }
+  var keyupWrapper = function (e) {
+    if((e.keyCode === 8 && this.value === '')
+      || e.keyCode === 27) {
+      return false
+    }
     setHeaderColor(this)
     consumeInput(this)
   }
@@ -347,6 +371,13 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
     selectedTypesArray.splice(selectedTypesArray.indexOf(this.textContent.toString().toLowerCase().slice(1)), 1)
     selectedTypes.removeChild(this)
     updateTypeChartData()
+    timer = Date.now()
   }
+  document.onkeydown = function (e) {
+    if(e.keyCode === 27) e.preventDefault()
+    input.focus()
+  }
+  document.onkeyup = escapeUpWrapper
+  input.onkeydown = keyDownWrapper
   input.onkeyup = keyupWrapper
 })();
