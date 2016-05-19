@@ -29,5 +29,9 @@
     "chai": "^2.3.0",
     "mocha": "^2.2.5",
     "mocha-phantomjs": "^3.5.3"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "node-sass-middleware": "^0.9.8"
   }
 }
