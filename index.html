@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="assets/styles/app.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Nixie+One|Raleway' rel='stylesheet' type='text/css'>
     <script src="assets/scripts/app.js" defer></script>
   </head>
   <body>
@@ -10,17 +11,15 @@
     </header>
     <main>
       <section class="selected-types" id="selected-types"></section>
-      <div class="type-effectiveness flex">
+      <div class="type-effectiveness flex" id="type-effectiveness">
         <section class="weaknesses">
-          <h1>Weaknesses</h1>
-          <section class="double-weak"></section>
-          <section class="weak"></section>
+          <section id="double-weak" class="double-weak"></section>
+          <section id="weak" class="weak"></section>
         </section>
         <section class="resistances">
-          <h1>Resistances</h1>
-          <section class="immune"></section>
-          <section class="double-resistant"></section>
-          <section class="resistant"></section>
+          <section id="immune" class="immune"></section>
+          <section id="double-resistant" class="double-resistant"></section>
+          <section id="resistant" class="resistant"></section>
         </section>
       </div>
     </main>

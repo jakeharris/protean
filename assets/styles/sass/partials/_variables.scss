@@ -23,9 +23,9 @@ $fairy: #d685ad;
 
 @function generate-font-color($background-color) {
   @if lightness($background-color) >= 50 {
-    @return darken($background-color, 50%);
+    @return darken($background-color, 30%);
   } @else {
-    @return lighten($background-color, 50%);
+    @return lighten($background-color, 30%);
   }
 }
 

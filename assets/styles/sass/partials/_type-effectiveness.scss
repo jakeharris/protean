@@ -1,17 +1,42 @@
 .type-effectiveness {
   display: flex;
   justify-content: space-between;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 .weaknesses, .resistances {
   flex-basis: 100%;
+  padding: 3rem;
   h1 {
     text-align: center;
     padding: 1rem 0;
   }
+  section ul {
+    display: flex;
+    li {
+      flex-basis: 20%;
+    }
+  }
 }
 @media (min-width: 480px) {
+  .type-effectiveness {
+    flex-wrap: nowrap;
+  }
   .weaknesses, .resistances {
     flex-basis: 50%;
+  }
+}
+
+.type-card {
+  padding: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  list-style: none;
+}
+@each $type in $types {
+  .#{$type}.type-card {
+    color: get-type-color($type, true);
+    border-bottom: 3px solid darken(get-type-color($type), 30%);
+    box-shadow: 0 0 3px darken(get-type-color($type), 30%);
+    box-sizing: border-box;
   }
 }

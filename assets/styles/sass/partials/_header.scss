@@ -15,7 +15,8 @@ header {
     @include type-colors($type);
   }
   .#{$type} {
-    border-bottom: 3px solid darken(get-type-color($type), 25%);
+    border-bottom: 3px solid darken(get-type-color($type), 30%);
+    box-shadow: 0 0 3px darken(get-type-color($type), 30%);
   }
 }
 

@@ -6,12 +6,43 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 3rem 0;
   
-  @include type-colors('normal');
-  
-  border-bottom: 3px solid darken(get-type-color('normal'), 50%);
+  background-color: beige;
+  color: darken(beige, 50%);
 }
 .waiting {
   font-size: $subtitle-font-size;
+}
+.type-button {
+  padding: 3rem;
+  margin: 0 3rem;
+  font-size: 3rem;
+  flex-basis: 25%;
+  text-align: center;
+  position: relative;
+  .cancel {
+    font-size: 1.5rem;
+    width: 2rem;
+    cursor: pointer;
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+@each $type in $types {
+  .#{$type}.type-button {
+    color: get-type-color($type, true);
+    border-bottom: 3px solid darken(get-type-color($type), 30%);
+    box-shadow: 0 0 3px darken(get-type-color($type), 30%);
+    box-sizing: border-box;
+    .cancel {
+      &:hover {
+        background-color: get-type-color($type, true);
+        color: get-type-color($type);
+      }
+    }
+  }
 }
