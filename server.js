@@ -9,7 +9,8 @@ app.get('/', function (req, res) {
 })
 app.use(sassMiddleware({
   src: __dirname + '/assets/styles/sass',
-  dest: __dirname + '/assets/styles'
+  dest: __dirname + '/assets/styles',
+  outputStyle: 'compressed'
 }))
 app.use(express.static(__dirname))
 app.use(express.static(__dirname + '/assets/styles'))
