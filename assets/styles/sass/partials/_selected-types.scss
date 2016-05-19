@@ -2,11 +2,11 @@
 
 .selected-types {
   display: flex;
-  min-height: 10vh;
+  min-height: 8vh;
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding: 3rem 0;
+  padding-top: 3rem;
   
   background-color: beige;
   color: darken(beige, 50%);
@@ -15,10 +15,10 @@
   font-size: $subtitle-font-size;
 }
 .type-button {
-  padding: 3rem;
-  margin: 0 3rem;
-  font-size: 3rem;
-  flex-basis: 25%;
+  padding: 2rem;
+  margin: 0 2rem;
+  font-size: 2rem;
+  flex-basis: 45%;
   text-align: center;
   position: relative;
   .cancel {
@@ -37,11 +37,19 @@
   }
 }
 
+@media (min-width: 900px) {
+  .type-button {
+    padding: 2.5rem;
+    margin: 0 2.5rem;
+    font-size: 2.5rem;
+    flex-basis: 25%;
+  }
+}
+
 @each $type in $types {
   .#{$type}.type-button {
     color: get-type-color($type, true);
     border-bottom: 3px solid darken(get-type-color($type), 30%);
-    box-shadow: 0 0 1px darken(get-type-color($type), 30%);
     box-sizing: border-box;
     .cancel {
       &:hover {

@@ -2,7 +2,7 @@
 
 header {
   display: flex;
-  min-height: 30vh;
+  min-height: 20vh;
   width: 100%;
   justify-content: space-around;
   align-items: center;
@@ -17,6 +17,9 @@ header {
   .#{$type} {
     border-bottom: 3px solid darken(get-type-color($type), 30%);
   }
+  .#{type} input::-webkit-placeholder {
+    @include type-colors($type);
+  }
 }
 
 input {
@@ -25,6 +28,7 @@ input {
   border: none;
   text-align: center;
   margin-top: -1.5rem;
+  outline-style: none;
 }
 input::placeholder {
   font-size: $title-font-size;

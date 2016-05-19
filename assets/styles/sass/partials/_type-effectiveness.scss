@@ -12,8 +12,11 @@
   }
   section ul {
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    -webkit-padding-start: 0;
     li {
-      flex-basis: 20%;
+      flex-basis: 100%;
     }
   }
 }
@@ -23,6 +26,20 @@
   }
   .weaknesses, .resistances {
     flex-basis: 50%;
+  }
+}
+@media (min-width: 800px) {
+  .weaknesses, .resistances {
+    section ul li {
+      flex-basis: 50%;
+    }
+  }
+}
+@media (min-width: 1080px) {
+  .weaknesses, .resistances {
+    section ul li {
+      flex-basis: 30%;
+    }
   }
 }
 
@@ -36,7 +53,7 @@
   .#{$type}.type-card {
     color: get-type-color($type, true);
     border-bottom: 3px solid darken(get-type-color($type), 30%);
-    box-shadow: 0 0 1px darken(get-type-color($type), 30%);
+    box-shadow: 0 1px 1px darken(get-type-color($type), 30%);
     box-sizing: border-box;
   }
 }
