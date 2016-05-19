@@ -1,21 +1,32 @@
 @import 'variables';
 
 header {
-  display: block;
+  display: flex;
   min-height: 30vh;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
 }
 
 @each $type in $types {
-  .#{$type} {
+  .#{$type},
+  .#{$type} input {
     @include type-colors($type);
+  }
+  .#{$type} {
+    border-bottom: 3px solid darken(get-type-color($type), 25%);
   }
 }
 
-h1 {
+input {
+  background: none;
   font-size: $title-font-size;
+  border: none;
   text-align: center;
+  margin-top: -1.5rem;
 }
-h1 + p {
-  font-size: $subtitle-font-size;
+input::placeholder {
+  font-size: $title-font-size;
   text-align: center;
 }
