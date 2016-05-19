@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "express": "^4.13.4",
+    "express-minify": "^0.2.0",
     "node-sass-middleware": "^0.9.8"
   }
 }

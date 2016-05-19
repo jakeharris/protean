@@ -1,6 +1,7 @@
 'using strict';
 var express = require('express'),
-    sassMiddleware = require('node-sass-middleware')
+    sassMiddleware = require('node-sass-middleware'),
+    minify = require('express-minify')
 
 app = express()
 app.get('/', function (req, res) {
@@ -12,6 +13,7 @@ app.use(sassMiddleware({
   dest: __dirname + '/assets/styles',
   outputStyle: 'compressed'
 }))
+app.use(minify())
 app.use(express.static(__dirname))
 app.use(express.static(__dirname + '/assets/styles'))
 
