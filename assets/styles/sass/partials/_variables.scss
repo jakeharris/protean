@@ -21,6 +21,14 @@ $dark: #705746;
 $steel: #b7b7ce;
 $fairy: #d685ad;
 
+@function generate-font-color($background-color) {
+  @if lightness($background-color) >= 50 {
+    @return darken($background-color, 50%);
+  } @else {
+    @return lighten($background-color, 50%);
+  }
+}
+
 /* Sizes */
 $title-font-size: 8rem;
 $subtitle-font-size: 4rem;
@@ -31,43 +39,43 @@ $subtitle-font-size: 4rem;
 }
 @function get-type-color($type, $isFont:false) {
   @if $type == 'normal' {
-    @return if($isFont, $normal-font-color, $normal);
+    @return if($isFont, generate-font-color($normal), $normal);
   } @elseif $type == 'fire' {
-    @return if($isFont, $fire-font-color, $fire);
+    @return if($isFont, generate-font-color($fire), $fire);
   } @elseif $type == 'water' {
-    @return if($isFont, $water-font-color, $water);
+    @return if($isFont, generate-font-color($water), $water);
   } @elseif $type == 'electric' {
-    @return if($isFont, $electric-font-color, $electric);
+    @return if($isFont, generate-font-color($electric), $electric);
   } @elseif $type == 'grass' {
-    @return if($isFont, $grass-font-color, $grass);
+    @return if($isFont, generate-font-color($grass), $grass);
   } @elseif $type == 'ice' {
-    @return if($isFont, $ice-font-color, $ice);
+    @return if($isFont, generate-font-color($ice), $ice);
   } @elseif $type == 'fighting' {
-    @return if($isFont, $fighting-font-color, $fighting);
+    @return if($isFont, generate-font-color($fighting), $fighting);
   } @elseif $type == 'poison' {
-    @return if($isFont, $poison-font-color, $poison);
+    @return if($isFont, generate-font-color($poison), $poison);
   } @elseif $type == 'ground' {
-    @return if($isFont, $ground-font-color, $ground);
+    @return if($isFont, generate-font-color($ground), $ground);
   } @elseif $type == 'flying' {
-    @return if($isFont, $flying-font-color, $flying);
+    @return if($isFont, generate-font-color($flying), $flying);
   } @elseif $type == 'psychic' {
-    @return if($isFont, $psychic-font-color, $psychic);
+    @return if($isFont, generate-font-color($psychic), $psychic);
   } @elseif $type == 'bug' {
-    @return if($isFont, $bug-font-color, $bug);
+    @return if($isFont, generate-font-color($bug), $bug);
   } @elseif $type == 'rock' {
-    @return if($isFont, $rock-font-color, $rock);
+    @return if($isFont, generate-font-color($rock), $rock);
   } @elseif $type == 'ghost' {
-    @return if($isFont, $ghost-font-color, $ghost);
+    @return if($isFont, generate-font-color($ghost), $ghost);
   } @elseif $type == 'dragon' {
-    @return if($isFont, $dragon-font-color, $dragon);
+    @return if($isFont, generate-font-color($dragon), $dragon);
   } @elseif $type == 'dark' {
-    @return if($isFont, $dark-font-color, $dark);
+    @return if($isFont, generate-font-color($dark), $dark);
   } @elseif $type == 'steel' {
-    @return if($isFont, $steel-font-color, $steel);
+    @return if($isFont, generate-font-color($steel), $steel);
   } @elseif $type == 'fairy' {
-    @return if($isFont, $fairy-font-color, $fairy);
+    @return if($isFont, generate-font-color($fairy), $fairy);
   } @else {
     @warn "We didn't receive a valid type. (Received: #{$type}.)";
-    @return if($isFont, $normal-font-color, $normal);
+    @return if($isFont, generate-font-color($normal), $normal);
   }
 }
