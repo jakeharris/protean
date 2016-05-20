@@ -3,43 +3,52 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.weaknesses, .resistances {
+.weaknesses, .resistances, .immunities {
+  display: flex;
   flex-basis: 100%;
-  padding: 3rem;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 2rem;
   h1 {
     text-align: center;
     padding: 1rem 0;
   }
-  section ul {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    -webkit-padding-start: 0;
-    padding: 0;
-    li {
-      flex-basis: 100%;
+  section {
+    flex-basis: 100%;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      -webkit-padding-start: 0;
+      padding: 0;
+      li {
+        flex-basis: 100%;
+      }
     }
   }
+}
+.hidden {
+  display: none;
 }
 @media (min-width: 480px) {
   .type-effectiveness {
     flex-wrap: nowrap;
   }
-  .weaknesses, .resistances {
-    flex-basis: 50%;
+  .weaknesses, .resistances, .immunities {
+    flex-basis: 33%;
   }
 }
 @media (min-width: 800px) {
-  .weaknesses, .resistances {
+  .weaknesses, .resistances, .immunities {
     section ul li {
       flex-basis: 50%;
     }
   }
 }
 @media (min-width: 1080px) {
-  .weaknesses, .resistances {
+  .weaknesses, .resistances, .immunities {
     section ul li {
-      flex-basis: 30%;
+      flex-basis: 33%;
     }
   }
 }
@@ -47,14 +56,13 @@
 .type-card {
   padding: 1rem;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   list-style: none;
 }
 @each $type in $types {
   .#{$type}.type-card {
     color: get-type-color($type, true);
-    border-bottom: 3px solid darken(get-type-color($type), 30%);
-    box-shadow: 0 1px 1px darken(get-type-color($type), 30%);
+    border-bottom: 3px solid darken(get-type-color($type), 25%);
     box-sizing: border-box;
   }
 }

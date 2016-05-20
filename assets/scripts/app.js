@@ -234,6 +234,9 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
       listHeader.textContent = title
       target.appendChild(listHeader)
       target.appendChild(list)
+    
+      if(arr.length === 0)
+        target.classList.add('hidden')
       
       for(var t in arr) {
         var typeItem = document.createElement('li')

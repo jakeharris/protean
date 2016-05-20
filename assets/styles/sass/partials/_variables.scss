@@ -23,14 +23,14 @@ $fairy: #d685ad;
 
 @function generate-font-color($background-color) {
   @if lightness($background-color) >= 50 {
-    @return darken($background-color, 30%);
+    @return darken($background-color, 25%);
   } @else {
-    @return lighten($background-color, 30%);
+    @return lighten($background-color, 25%);
   }
 }
 
 /* Sizes */
-$title-font-size: 8rem;
+$title-font-size: 6rem;
 $subtitle-font-size: 4rem;
 
 @mixin type-colors($type) {
