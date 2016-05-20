@@ -317,11 +317,11 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
       w.splice(w.indexOf(intersectionWeakResist[wii]), 1)
       r.splice(r.indexOf(intersectionWeakResist[wii]), 1)
     }
-    appendTypeList(doubleWeak, dw, "Doubly weak to:")
-    appendTypeList(weak, w, "Weak to:")
-    appendTypeList(immune, i, "Immune to:")
-    appendTypeList(doubleResistant, dr, "Doubly resistant to:")
-    appendTypeList(resistant, r, "Resistant to:")
+    appendTypeList(doubleWeak, dw, "4x")
+    appendTypeList(weak, w, "2x")
+    appendTypeList(immune, i, "0x")
+    appendTypeList(doubleResistant, dr, "1/4x")
+    appendTypeList(resistant, r, "1/2x")
     
   }
   var consumeInput = function (e) {
