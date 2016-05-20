@@ -286,23 +286,26 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
     // if we were doubly weak to anything,
     // we shouldn't display that in the singly-
     // weak list
-    for(var wi in dw.filter(function (weakness) {
+    var intersectionDWweak = dw.filter(function (weakness) {
       return w.indexOf(weakness) !== -1
-    })) {
-      w.splice(w.indexOf(dw[wi]), 1)
+    })
+    for(var wi in intersectionDWweak) {
+      w.splice(w.indexOf(intersectionDWweak[wi]), 1)
     }
     // same for resistances.
-    for(var ri in dr.filter(function (resistance) {
+    var intersectionDRresistant = dr.filter(function (resistance) {
       return r.indexOf(resistance) !== -1
-    })) {
-      r.splice(r.indexOf(dr[ri]), 1)
+    })
+    for(var ri in intersectionDRresistant) {
+      r.splice(r.indexOf(intersectionDRresistant[ri]), 1)
     }
     // if we're immune, it shouldn't show up
     // in any list but the immunities
-    for(var ii in i.filter(function (immunity) {
+    var intersectionImmunityWeakResist = i.filter(function (immunity) {
       return w.indexOf(immunity) !== -1 || r.indexOf(immunity) !== -1
-    })) {
-      var imm = i[ii]
+    })
+    for(var ii in intersectionImmunityWeakResist) {
+      var imm = intersectionImmunityWeakResist[ii]
       if(w.indexOf(imm) !== -1) 
         w.splice(w.indexOf(imm), 1)
       if(r.indexOf(imm))
