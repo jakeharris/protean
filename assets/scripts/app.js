@@ -335,8 +335,9 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
     appendTypeList(resistant, r, "1/2x")
   }
   var consumeInput = function (e) {
-    if(isType(e.value)) {
-      var t = e.value
+    var val = e.value.toLowerCase()
+    if(isType(val)) {
+      var t = val
       if(Date.now() - timer < timeLimit && selectedTypesArray.length < 2 && selectedTypesArray.indexOf(t) !== -1) {}
       else {
         createTypeButton(t)
@@ -347,8 +348,8 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
     }
   }
   var setHeaderColor = function (e) {
-    if(isType(e.value))
-      header.className = e.value
+    if(isType(e.value.toLowerCase()))
+      header.className = e.value.toLowerCase()
   }
   var escapeUpWrapper = function (e) {
     if(e.keyCode === 27) {
