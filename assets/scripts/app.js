@@ -255,11 +255,8 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
     r = []
     dr = []
     
-    console.log(selectedTypesArray)
-    
     for(var typeIndex in selectedTypesArray) {
       var type = selectedTypesArray[typeIndex]
-      console.log('Building effectiveness for ' + type + ' type...')
       
       // run through weaknesses
       for(var weaknessIndex in defensiveEffectivenesses.weaknesses[type]) {
@@ -313,12 +310,13 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
     }
     // if we're weak AND resistant, it shouldn't
     // show up in any list
-//    for(var wii in w.filter(function (weakness) {
-//      return r.indexOf(weakness) !== - 1
-//    })) {
-//      w.splice(w.indexOf(w[wii]), 1)
-//      r.splice(r.indexOf(w[wii]), 1)
-//    }
+    var intersectionWeakResist = w.filter(function (weakness) {
+      return (r.indexOf(weakness) !== -1)
+    })
+    for(var wii in intersectionWeakResist) {
+      w.splice(w.indexOf(intersectionWeakResist[wii]), 1)
+      r.splice(r.indexOf(intersectionWeakResist[wii]), 1)
+    }
     appendTypeList(doubleWeak, dw, "Doubly weak to:")
     appendTypeList(weak, w, "Weak to:")
     appendTypeList(immune, i, "Immune to:")
@@ -367,7 +365,6 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
     consumeInput(this)
   }
   var clickWrapper = function () {
-    console.log(this.textContent.toString().toLowerCase().slice(1))
     selectedTypesArray.splice(selectedTypesArray.indexOf(this.textContent.toString().toLowerCase().slice(1)), 1)
     selectedTypes.removeChild(this)
     updateTypeChartData()
