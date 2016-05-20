@@ -4,6 +4,7 @@ header {
   display: flex;
   min-height: 20vh;
   width: 100%;
+  max-width: 100%;
   justify-content: space-around;
   align-items: center;
   padding: 1rem 0;
@@ -27,8 +28,10 @@ input {
   font-size: $title-font-size;
   border: none;
   text-align: center;
+  margin: 0 auto;
   margin-top: -1.5rem;
   outline-style: none;
+  max-width: 90%;
 }
 input::placeholder {
   font-size: $title-font-size;
