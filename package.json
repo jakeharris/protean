@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Pokemon type effectiveness, done right.",
   "scripts": {
-    "test": "mocha -r spec && mocha-phantomjs index.html"
+    "test": "mocha -r spec && mocha-phantomjs index.html",
+    "start": "node-sass --output-style compressed assets/styles/sass/app.scss > assets/styles/app.min.css && node server.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,6 @@
   },
   "dependencies": {
     "express": "^4.13.4",
-    "express-minify": "^0.2.0",
-    "node-sass-middleware": "^0.9.8"
+    "node-sass": "^3.7.0"
   }
 }

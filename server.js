@@ -1,21 +1,26 @@
 'using strict';
+
 var express = require('express'),
-    sassMiddleware = require('node-sass-middleware'),
-    minify = require('express-minify')
+    sass = require('node-sass')
+
+// compile sass to css
+sass.render({
+  file: 'assets/styles/sass/app.scss',
+  includePaths: ['assets/styles/sass/partials'],
+  outFile: 'assets/styles/sass/app.css',
+  sourceMap: 'true',
+  outputStyle: 'compressed'
+});
 
 app = express()
+
+app.use(express.static(__dirname))
+app.use(express.static(__dirname + '/assets/styles'))
+
 app.get('/', function (req, res) {
   'use strict';
   res.sendFile(__dirname + '/index.html')
 })
-app.use(sassMiddleware({
-  src: __dirname + '/assets/styles/sass',
-  dest: __dirname + '/assets/styles',
-  outputStyle: 'compressed'
-}))
-app.use(minify())
-app.use(express.static(__dirname))
-app.use(express.static(__dirname + '/assets/styles'))
 
 var http = require('http').Server(app),
     port = normalizePort(process.env.PORT || '1107')
