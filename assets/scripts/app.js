@@ -147,7 +147,7 @@ var types = [
         bug: []
       }
     },
-    waitingContent = 'Awaiting types...',
+    waitingContent = 'Type some Pokemon types!',
     waitingId = 'waiting',
     typeButtonHTML = '<div class="cancel">x</div>',
     selectedTypesArray = [];
