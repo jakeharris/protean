@@ -330,8 +330,11 @@ var doubleWeak, weak, immune, doubleResistant, resistant,
   var consumeInput = function (e) {
     if(isType(e.value)) {
       var t = e.value
-      createTypeButton(t)
-      updateTypeChartData()
+      if(Date.now() - timer < timeLimit && selectedTypesArray.length < 2 && selectedTypesArray.indexOf(t) !== -1) {}
+      else {
+        createTypeButton(t)
+        updateTypeChartData()
+      }
       e.value = ''
       timer = Date.now()
     }
