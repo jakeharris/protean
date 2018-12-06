@@ -1,4 +1,4 @@
-var types = [
+const types = [
     'normal',
     'fire',
     'water',
